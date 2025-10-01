@@ -10,17 +10,17 @@ Python 3.10+
  (optional for testing DB connections, but we used it)
 psycopg2 library for Python (for PostgreSQL connections)
 
-## Step 1: Start Metabase in Docker
+# Step 1: Start Metabase in Docker
 
-# Run this command inside VS Code terminal (PowerShell or Command Prompt works too):
+## Run this command inside VS Code terminal (PowerShell or Command Prompt works too):
 docker run -d -p 3000:3000 --name metabase metabase/metabase
 -d runs container in background
 -p 3000:3000 maps Metabase’s port 3000 to your local port 3000
 --name metabase names the container metabase
 After this, Metabase will appear in Docker Desktop under Containers.
 
-## Step 2: Start PostgreSQL in Docker
-# Now let’s run a PostgreSQL container:
+# Step 2: Start PostgreSQL in Docker
+## Now run a PostgreSQL container:
 docker run --name some-postgres -e POSTGRES_PASSWORD=secret -p 5432:5432 -d postgres
 
 Explanation:
@@ -32,7 +32,7 @@ PostgreSQL is now running on localhost:5432 with:
 user: postgres
 password: secret
 
-## Step 3: Verify Database Connection with Python
+# Step 3: Verify Database Connection with Python
 Inside VS Code terminal, install psycopg2:
 pip install psycopg2
 Create a test file test_connection.py in your project folder:
@@ -55,7 +55,7 @@ Run it:
 python test_connection.py
 If successful, you’ll see: "Connected successfully to PostgreSQL!"
 
-## Step 4: Open Metabase in Browser
+# Step 4: Open Metabase in Browser
 Now, go to: http://localhost:3000
 This will open the Metabase setup wizard.
 Create an Admin account (username, email, password).
