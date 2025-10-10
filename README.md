@@ -11,9 +11,9 @@ Goal: Install Ollama and a local LLM, then use it with LangChain.
 [6:00]: Running Queries. The video walks through how the LLM generates SQL queries and executes them against the database.
 [10:00]: Bringing it all together. The video demonstrates the full agent in action.  
 
-## 1. AI Graphing using:
+## 2. AI Graphing using:
 Video: "Build a Plotly AI Agent for Creating Visualizations".
-Source: YouTube.
+Source: https://www.youtube.com/watch?v=Phix-s5NPUA 
 Goal: Learn how to use an LLM to generate Plotly code.
 [2:30]: Initial Setup. The video demonstrates the basic Python setup for generating visualizations.
 [4:15]: The plotly.express function. The presenter explains how the LLM calls plotly.express functions to create charts.
