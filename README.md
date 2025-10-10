@@ -1,81 +1,44 @@
 # LLM-Integration
 Part of a Budgeting app where the LLM  assists the user with different needs of budgeting and information.  
 
-## Before starting, ensure you have the following installed on your system:
-Docker Desktop
- (for running Metabase and PostgreSQL containers)
-Visual Studio Code
- (for running commands and editing files)
-Python 3.10+
- (optional for testing DB connections, but we used it)
-psycopg2 library for Python (for PostgreSQL connections)
+## 1. SQL AI Agent Access using Python, LangChain, and Ollama: 
+Video: "Mastering AI-Powered SQL Querying: Build a Smart MySQL Agent with Python, LangChain, and Ollama".
+Source: https://www.youtube.com/watch?v=g9MrxC64yF8
+Goal: Install Ollama and a local LLM, then use it with LangChain.
+[0:00]: Introductions and overview of the project.
+[1:30]: Installation and Setup. Install Ollama and use it to pull the necessary local models. This is a critical first step.
+[4:15]: LangChain and Database Connection. Learn how to use LangChain's SQL Database Toolkit to connect to a database.
+[6:00]: Running Queries. The video walks through how the LLM generates SQL queries and executes them against the database.
+[10:00]: Bringing it all together. The video demonstrates the full agent in action.  
 
-# Step 1: Start Metabase in Docker
+## 1. AI Graphing using:
+Video: "Build a Plotly AI Agent for Creating Visualizations".
+Source: YouTube.
+Goal: Learn how to use an LLM to generate Plotly code.
+[2:30]: Initial Setup. The video demonstrates the basic Python setup for generating visualizations.
+[4:15]: The plotly.express function. The presenter explains how the LLM calls plotly.express functions to create charts.
+[7:00]: Graph Generation. The video shows the agent taking a user prompt and returning the appropriate Plotly figure. 
 
-## Run this command inside VS Code terminal (PowerShell or Command Prompt works too):
-docker run -d -p 3000:3000 --name metabase metabase/metabase
--d runs container in background
--p 3000:3000 maps Metabase’s port 3000 to your local port 3000
---name metabase names the container metabase
-After this, Metabase will appear in Docker Desktop under Containers.
+## 3.Combining the agent and Plotly functionality
+This requires manually combining the code from the two types of tutorials.
+Retrieve database data: Run the database-focused agent code from Part 1 to get the data you want to visualize.
+Generate Plotly code: Use the agent to generate Python code for the Plotly graph. Instead of generating the SQL query, the prompt will instruct the agent to generate the Plotly code from the retrieved data.
+Execute the code: The agent uses its code execution tool to run the generated Plotly code and produce the graph. 
 
-# Step 2: Start PostgreSQL in Docker
-## Now run a PostgreSQL container:
-docker run --name some-postgres -e POSTGRES_PASSWORD=secret -p 5432:5432 -d postgres
+Installations
+ollama: For running the local LLM.
+langchain: The agent framework.
+langchain-experimental: For the Python REPL tool.
+langchain-community: For connecting to the database.
+plotly: The plotting library.
+pandas: For data manipulation.
+sqlalchemy: The database toolkit dependency. 
 
-Explanation:
---name some-postgres → container name is some-postgres
--e POSTGRES_PASSWORD=secret → sets default password to secret
--p 5432:5432 → exposes PostgreSQL on your local machine at port 5432
--d postgres → runs in background using official postgres image
-PostgreSQL is now running on localhost:5432 with:
-user: postgres
-password: secret
-
-# Step 3: Verify Database Connection with Python
-Inside VS Code terminal, install psycopg2:
-pip install psycopg2
-Create a test file test_connection.py in your project folder:
-import psycopg2
-
-try:
-    conn = psycopg2.connect(
-        dbname="postgres",
-        user="postgres",
-        password="secret",
-        host="localhost",
-        port="5432"
-    )
-    print("Connected successfully to PostgreSQL!")
-    conn.close()
-except Exception as e:
-    print("Connection failed:", e)
-
-Run it:
-python test_connection.py
-If successful, you’ll see: "Connected successfully to PostgreSQL!"
-
-# Step 4: Open Metabase in Browser
-Now, go to: http://localhost:3000
-This will open the Metabase setup wizard.
-Create an Admin account (username, email, password).
-Choose Connect to your database.
-Enter PostgreSQL credentials:
-Host: localhost
-Port: 5432
-Database name: postgres
-Username: postgres
-Password: secret
-Click Next.
-If all is correct, Metabase will connect to PostgreSQL and show the dashboard.
-
-What You Have Now:
-Metabase running at http://localhost:3000
-PostgreSQL running locally with a test database
-Python test confirmed DB connection
-Metabase connected to PostgreSQL and ready for queries
-
-
-Now you can create "Questions" Inside Metabase and save it to the dashboard that will be used by the LLM to display to the user. 
-
-
+Set up Ollama: Download and install Ollama, then pull your desired LLM (e.g., ollama pull llama3).
+Install Python libraries: Use pip to install all the required packages.
+Define the tools: Create the SQLDatabaseToolkit and the PythonREPLTool for your agent.
+Create the agent: Use create_react_agent to build the agent and equip it with the necessary tools.
+Craft the prompts: Write a prompt that guides the agent through the process:
+Phase 1: Generate and execute a SQL query to retrieve data.
+Phase 2: Use the retrieved data to generate and execute Python code for the Plotly visualization.
+Execute the workflow: Run the agent with your natural language request, and it will perform both steps to deliver your graph.
