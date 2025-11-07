@@ -19,7 +19,7 @@ clarifi_agent/
 ├── main.py                  # FastAPI app entry point
 └── final_test.py           # Comprehensive test suite
 
-## Database Configuration (core/config.py):
+**Database Configuration (core/config.py):
 class Settings(BaseSettings):
     DATABASE_URL: str = "postgresql+psycopg2://user:pass@host:port/db"
     LLM_MODEL: str = "llama3"
@@ -124,6 +124,7 @@ const ChatInterface = () => {
     }
   };
 };
+
 
 
 
