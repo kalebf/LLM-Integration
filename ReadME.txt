@@ -3,7 +3,7 @@ clarifi_agent/
 ├── __init__.py
 ├── agents/
 │   ├── __init__.py
-│   ├── chat_interface.py          # Main LLM agent logic
+│   ├── chat_interface.py          # simple interface to take user's messages call IntentClassifier and Returns responses 
 │   ├── query_runner.py       # SQL query execution
 │   └── data_handler.py         # create and delete transacction entries
 │   └── intent_clasifier.py         # tells the LLM what class to use
@@ -461,5 +461,6 @@ Enhanced conversation context
 More complex query patterns
 
 Advanced budget/goal management
+
 
 
