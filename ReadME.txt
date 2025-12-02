@@ -15,11 +15,12 @@ clarifi_agent/
 │   ├── __init__.py
 │   ├── config.py            # Configuration settings
 │   └── database.py          # SQLAlchemy database connection
-├── models/
-│   ├── __init__.py
-│   └── schemas.py           # Pydantic models
 ├── main.py                  # FastAPI app entry point
-└── final_test.py           # Comprehensive test suite
+├── tests/
+│   ├── test_query_runner.py       
+│   └── test_data_handler.py         
+│   └── test_intent_clasifier.py         
+│   └── test_connection.py         
 
 Database Configuration (core/config.py):
 class Settings(BaseSettings):
@@ -461,6 +462,7 @@ Enhanced conversation context
 More complex query patterns
 
 Advanced budget/goal management
+
 
 
 
