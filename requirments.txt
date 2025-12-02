@@ -1,7 +1,8 @@
+Have Ollam installed to run llama3 using coamnd: ollama run llama3
+
 langchain-ollama>=0.3.1
-plotly>=5.0.0
-pandas>=1.5.0
 sqlalchemy>=2.0.0
 psycopg2-binary>=2.9.0
 python-dotenv>=1.0.0
+pydantic>=2.12.0
 llama3
