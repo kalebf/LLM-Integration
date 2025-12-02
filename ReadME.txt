@@ -27,8 +27,8 @@ class Settings(BaseSettings):
     LLM_MODEL: str = "llama3"
 
 
-*LLM Integration Documentation
-**Overview
+LLM Integration Documentation
+Overview
 This document provides comprehensive documentation for the LLM integration system designed for a financial application. The system processes natural language queries to perform database operations with strong safety measures and user-specific access controls.
 
 1. intent_classifier.py
@@ -441,15 +441,15 @@ Additional context-specific fields
 
 Current Focus & Future Expansion
 Currently Implemented
-✅ Transaction creation (spending/income)
+Transaction creation (spending/income)
 
-✅ Transaction deletion (with confirmation)
+Transaction deletion (with confirmation)
 
-✅ Information viewing (expenses, income, budgets, user info)
+Information viewing (expenses, income, budgets, user info)
 
-✅ User access control
+User access control
 
-✅ Safety measures for destructive operations
+Safety measures for destructive operations
 
 Reserved for Future Expansion
 UPDATE operations (stubbed for implementation)
@@ -461,4 +461,5 @@ Enhanced conversation context
 More complex query patterns
 
 Advanced budget/goal management
+
 
