@@ -27,8 +27,8 @@ class Settings(BaseSettings):
     LLM_MODEL: str = "llama3"
 
 
-#LLM Integration Documentation
-##Overview
+*LLM Integration Documentation
+**Overview
 This document provides comprehensive documentation for the LLM integration system designed for a financial application. The system processes natural language queries to perform database operations with strong safety measures and user-specific access controls.
 
 1. intent_classifier.py
@@ -461,3 +461,4 @@ Enhanced conversation context
 More complex query patterns
 
 Advanced budget/goal management
+
